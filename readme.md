@@ -1,0 +1,162 @@
+Here's a more detailed version of the **README.md** with expanded sections for input and output:
+
+---
+
+# **SaaS Review Scraper**
+
+A Node.js script designed to scrape SaaS product reviews from a specified review source (e.g., G2, Capterra, etc.). The script collects detailed information such as review text, review date, rating, and reviewer name, and outputs the data in a structured JSON format.
+
+---
+
+## **Features**
+- Scrapes reviews from a SaaS product's review page.
+- Handles multiple pages of reviews through pagination.
+- Outputs reviews in a structured JSON format, making it easy to process further.
+- Configurable for different SaaS products by passing different URLs and pagination settings.
+
+---
+
+## **Installation**
+
+1. Clone or download the repository:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+---
+
+## **Usage**
+
+### **Running the Scraper**
+To run the scraper, use the following command:
+```bash
+node scraper.js <base_url> [from_page] [to_page]
+```
+
+- `<base_url>`: The review page URL of the SaaS product (this is **required**).
+- `[from_page]`: The starting page for pagination (optional, default is `1`).
+- `[to_page]`: The ending page for pagination (optional, default is `6`).
+
+**Example:**
+```bash
+node scraper.js "https://www.example.com/review/saas-product" 1 5
+```
+
+This command will scrape reviews from pages 1 through 5 of the given URL.
+
+---
+
+## **Input**
+- **Base URL**: The URL of the SaaS product review page you want to scrape. This URL should be structured such that it includes the reviews for a specific product. For example: 
+  ```
+  https://www.example.com/review/saas-product
+  ```
+  ![image](https://github.com/user-attachments/assets/3b9ca996-4f1c-4e13-ac57-64fd56ca928e)
+
+  The URL should include a query string for pagination, such as `?page=1`, which the script can modify to navigate through multiple pages.
+
+- **Page Range (Optional)**: The script supports pagination and allows you to specify which pages to scrape. You can define a `from_page` and `to_page` to determine the range of pages to be scraped. By default, it scrapes from page 1 to page 6.
+
+---
+
+## **Output**
+The scraper saves the collected reviews as a structured JSON file in the `output/` directory. Each file is named using the SaaS product’s company name and the current timestamp, ensuring unique filenames for each scrape. The naming format is:
+
+![image](https://github.com/user-attachments/assets/d23988b4-8101-43ec-beb1-176a001873fa)
+
+
+```
+<company_name>-YYYY-MM-DDTHH-MM-SS.json
+```
+
+For example, if the company name is "saas-product" and the scrape is done on "2025-04-29", the filename might look like:
+```
+saas-product-2025-04-29T12-30-45.json
+```
+
+### **Output Structure**
+The JSON file will contain an array of review objects, where each object represents a single review with the following fields:
+
+![image](https://github.com/user-attachments/assets/77b4efad-0f00-47a2-abea-1b058af32b2a)
+
+```json
+[
+  {
+    "Review Text": "This is the review text.",
+    "Review Date": "2025-04-28",
+    "Rating": 4
+  },
+  {
+    "Review Text": "Another review text.",
+    "Review Date": "2025-04-27",
+    "Rating": 5
+  }
+]
+```
+
+Each review object contains:
+- **Review Text**: The body of the review (a string) left by the reviewer.
+- **Review Date**: The date when the review was posted (a string in `YYYY-MM-DD` format).
+- **Rating**: The rating provided by the reviewer, typically on a scale of 1 to 5.
+
+---
+
+## **Example of Full Command and Output**
+
+1. **Command**:
+   ```bash
+   node scraper.js "https://www.example.com/review/saas-product" 1 3
+   ```
+   ![image](https://github.com/user-attachments/assets/e3f84bb3-db43-4934-b88e-6e1b0720dc80)
+
+
+2. **Output File**:
+   After running the command, the scraper will generate a file in the `output/` folder like this:
+   ```
+   output/saas-product-2025-04-29T12-30-45.json
+   ```
+   ![image](https://github.com/user-attachments/assets/221dd3ed-0860-458a-ac43-42211fdfec7e)
+
+3. **Content of the Output File**:
+   ```json
+   [
+     {
+       "Review Text": "This is the best SaaS product I've used in years!",
+       "Review Date": "2025-04-28",
+       "Rating": 5
+     },
+     {
+       "Review Text": "Good, but could use some improvement.",
+       "Review Date": "2025-04-27",
+       "Rating": 4
+     },
+     {
+       "Review Text": "Not worth the price, very buggy.",
+       "Review Date": "2025-04-26",
+       "Rating": 2
+     }
+   ]
+   ```
+
+---
+
+## **Dependencies**
+- **axios**: For making HTTP requests to fetch the HTML content of the review pages.
+- **cheerio**: A jQuery-like library for parsing HTML and extracting the required data.
+- **fs**: For file system operations, such as saving the scraped data to files.
+- **path**: For handling and manipulating file paths in a cross-platform manner.
+
+---
+
+## **License**
+This project is licensed under the MIT License.
+
+---
+
+Let me know if you'd like further modifications!
