@@ -6,9 +6,8 @@ A Node.js script designed to scrape SaaS product reviews from a specified review
 
 ## **Features**
 - Scrapes reviews from a SaaS product's review page.
-- Handles multiple pages of reviews through pagination.
 - Outputs reviews in a structured JSON format, making it easy to process further.
-- Configurable for different SaaS products by passing different URLs and pagination settings.
+- Configurable for different SaaS products by passing different URLs.
 
 ---
 
@@ -16,8 +15,7 @@ A Node.js script designed to scrape SaaS product reviews from a specified review
 
 1. Clone or download the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone <[repository-url](https://github.com/vivdto/scrapeflow-pulse)>
    ```
 
 2. Install dependencies:
@@ -29,7 +27,7 @@ A Node.js script designed to scrape SaaS product reviews from a specified review
 
 ## **Usage**
 
-### **Running the Scraper**
+### **Running the Scrapeflow**
 To run the scraper, use the following command:
 ```bash
 node scraper.js <base_url> [from_page] [to_page]
@@ -55,7 +53,7 @@ This command will scrape reviews from pages 1 through 5 of the given URL.
   ```
   ![image](https://github.com/user-attachments/assets/3b9ca996-4f1c-4e13-ac57-64fd56ca928e)
 
-  The URL should include a query string for pagination, such as `?page=1`, which the script can modify to navigate through multiple pages.
+  The URL includes a pagination query string, such as `?page=1`, which the script can modify to navigate multiple pages.
 
 - **Page Range (Optional)**: The script supports pagination and allows you to specify which pages to scrape. You can define a `from_page` and `to_page` to determine the range of pages to be scraped. By default, it scrapes from page 1 to page 6.
 
@@ -70,6 +68,7 @@ The scraper saves the collected reviews as a structured JSON file in the `output
 ```
 <company_name>-YYYY-MM-DDTHH-MM-SS.json
 ```
+![image](https://github.com/user-attachments/assets/f9fa1974-ebaa-4fed-a860-7dc13910c800)
 
 For example, if the company name is "saas-product" and the scrape is done on "2025-04-29", the filename might look like:
 ```
@@ -98,6 +97,9 @@ The JSON file will contain an array of review objects, where each object represe
 
 Each review object contains:
 - **Review Text**: The body of the review (a string) left by the reviewer.
+
+  ![image](https://github.com/user-attachments/assets/f14a83c3-9fd4-41e4-91c3-44c85478bc5b)
+  
 - **Review Date**: The date when the review was posted (a string in `YYYY-MM-DD` format).
 - **Rating**: The rating provided by the reviewer, typically on a scale of 1 to 5.
 
@@ -152,7 +154,3 @@ Each review object contains:
 
 ## **License**
 This project is licensed under the MIT License.
-
----
-
-Let me know if you'd like further modifications!
