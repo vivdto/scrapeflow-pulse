@@ -1,0 +1,17 @@
+{
+  "productName": "Zomato for Business",
+  "stars": "4.3",
+  "totalReviews": "23",
+  "allReviews": [
+    {
+      "reviewerName": "Eti",
+      "profileTitle": "Engineer in India",
+      "stars": "1.0",
+      "reviewDate": "7 months ago",
+      "reviewText": "Worst app. Please use any ither food delivery app",
+      "pros": "Nothing great about this app. All other apps gives same experience",
+      "cons": "Zomato is the worst app. Its total scam. If you have any issues in order or delivery , they give you minimum refund. Which will not even be equal to you money loss. You can't even xall customer care. They have option only to chat. So your money is completely at stake if you order anything."
+    }
+  ],
+  "totalScrapedReviews": 1
+}

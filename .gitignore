@@ -1,5 +1,4 @@
 /node_modules
 .env
 html_dumps
-output
 .vscode
