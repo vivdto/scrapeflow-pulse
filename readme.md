@@ -17,7 +17,7 @@ A Node.js script designed to scrape SaaS product reviews from a specified review
 
 1. Clone or download the repository:
    ```bash
-   git clone <[repository-url](https://github.com/vivdto/scrapeflow-pulse)>
+   git clone https://github.com/vivdto/scrapeflow-pulse>
    ```
 
 2. Install dependencies:
