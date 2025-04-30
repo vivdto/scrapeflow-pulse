@@ -3,3 +3,15 @@
      "start_date": "2024-06-01",
      "end_date": "2025-12-31"
 }
+
+
+------ Another input for G2 -----
+
+{
+    "url": "https://www.g2.com/products/avepoint-multi-saas-cloud-backup/reviews",
+    "start_date": "2021-04-01",
+    "end_date": "2025-04-25"
+}
+
+* Note: Run only one input for this script at a time. Comment out or remove any other inputs to avoid conflicts, and maintain proper JSON format.
+
