@@ -1,6 +1,6 @@
 # **Scrapeflow | Pulse - Transforming feedback into action's Assignment**
 
-![image](https://github.com/user-attachments/assets/86192445-1d66-470a-bb90-134925655c39)
+![image](https://github.com/user-attachments/assets/bfb06e54-b58e-4c34-8bd3-0bd438aa4c9d)
 
 A Node.js script designed to scrape SaaS product reviews from a specified review source (e.g., G2, Capterra, etc.). The script collects detailed information such as review text, review date, rating, and reviewer name, and outputs the data in a structured JSON format.
 
