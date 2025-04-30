@@ -3,7 +3,23 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const path = require('path');
 
+<<<<<<< HEAD
+// Function to read input from input.json
+function readInputFile() {
+  const inputFilePath = path.join(__dirname, 'input.json');
+  if (!fs.existsSync(inputFilePath)) {
+    console.log('input.json file not found!');
+    process.exit(1);
+  }
+
+  const inputData = fs.readFileSync(inputFilePath, 'utf-8');
+  return JSON.parse(inputData);
+}
+
+// Function to extract reviews from a page
+=======
 // Function to extract reviews from a single Trustpilot page
+>>>>>>> 7ca30c9bc729da20727b6173470a993c24aee476
 async function extractReviews(pageUrl) {
   const headers = { 'User-Agent': 'Mozilla/5.0' }; // Mimic a browser to avoid request blocking
   try {
@@ -66,6 +82,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+<<<<<<< HEAD
+// Extract company name from the base URL
+=======
 // Command-line argument parsing
 const baseUrl = process.argv[2];
 const fromPage = parseInt(process.argv[3], 10) || 1;
@@ -77,6 +96,7 @@ if (!baseUrl) {
 }
 
 // Extract company name from URL for use in filename
+>>>>>>> 7ca30c9bc729da20727b6173470a993c24aee476
 function extractCompanyName(url) {
   const match = url.match(/\/review\/([^/?]+)/);
   return match ? match[1].replace(/\./g, '_') : 'unknown_company';
@@ -91,11 +111,31 @@ function ensureOutputDir() {
   return dir;
 }
 
+<<<<<<< HEAD
+// Main logic to extract reviews
+(async () => {
+  const { url, start_date, end_date } = readInputFile(); // Read from input.json
+
+  if (!url) {
+    console.log('Please provide a URL in input.json.');
+    process.exit(1);
+  }
+
+  console.log(`Scraping reviews from: ${url}`);
+  console.log(`Date Range: ${start_date} to ${end_date}`);
+
+  // Here you would modify your review extraction logic to filter based on the date range
+  const reviews = await extractAllReviews(url); // You can modify this function to filter by dates if needed
+
+  const companyName = extractCompanyName(url);
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // safe for filenames
+=======
 // Main IIFE to run the scraper
 (async () => {
   const reviews = await extractAllReviews(baseUrl, fromPage, toPage);
   const companyName = extractCompanyName(baseUrl);
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // Timestamp safe for filenames
+>>>>>>> 7ca30c9bc729da20727b6173470a993c24aee476
   const outputDir = ensureOutputDir();
   const outputFilePath = path.join(outputDir, `${companyName}-${timestamp}.json`);
 
